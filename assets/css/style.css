@@ -220,4 +220,13 @@ label {
     background-color: gainsboro;
     color: black;
 }
-/*slider-header----> end*/
+
+.panel.panel-default {
+    width: 80%;
+    margin: auto;
+}
+
+.panel.panel-default.results {
+    width: 60%;
+    margin: auto;
+}
