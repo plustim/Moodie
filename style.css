@@ -1,0 +1,223 @@
+#logo {
+    padding-left: 35%;
+}
+
+
+.jumbotron {
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	width: 960px;
+	text-align: center;
+	border: 2px solid black;
+	border-radius: 4px;
+	background-color: lightgray;
+	color: white;
+}
+
+#container {
+	width: 960px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+input, select {
+	display: block;
+	width: 935px;
+	height: 30px;
+	margin: 0 auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 4px;
+	border: 1px solid #999999;
+}
+
+label {
+	display: block;
+	margin: 0 auto;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 920px;
+	border: none;
+}
+
+#search-div, #responses {
+	border: 1px solid black;
+	border-radius: 4px;
+}
+
+#search-param, #top-articles {
+	margin-top: 0;
+	padding-top: 5px;
+	height: 30px;
+	background-color: lightgray;
+	color: #ffffff;
+	padding-left: 5px;
+}
+
+#submit, #clear {
+	height: 35px;
+	margin-top: 10px;
+	margin-left: 10px;
+	background-color: #999999;
+	border: 1px solid black;
+	color: #ffffff;
+}
+
+
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc 
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+
+.footer-bottom {
+    background-color: #15224f;
+    min-height: 30px;
+    width: 100%;
+}
+.copyright {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+}
+.design {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+    text-align: right;
+}
+.design a {
+    color: #fff;
+}
+.row1 {
+    text-align: center;
+}
+
+/*slider --> start*/
+
+.hide-bullets {
+    list-style:none;
+    margin-left: -40px;
+    margin-top:20px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    width: 100%;
+}
+/*slider --> end*/
+
+/*slider-header----> start*/
+
+.btn3d {
+    transition: all .08s linear;
+    position: relative;
+    outline: medium none;
+    -moz-outline-style: none;
+    border: 0px;
+    margin-top: 15px;
+    top: 0;
+}
+.btn3d:focus {
+    outline: medium none;
+    -moz-outline-style: none;
+}
+.btn3d:active {
+    top: 9px;
+}
+.btn3d.btn-default {
+    box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #f2f4f4, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.btn3d.btn-primary {
+    box-shadow: 0 0 0 1px #ebebeb inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #f2f4f4, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.btn3d.btn-success {
+    box-shadow: 0 0 0 1px #999999 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #f2f4f4, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.btn3d.btn-info {
+    box-shadow: 0 0 0 1px #999999 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #f2f4f4, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.btn3d.btn-warning {
+    box-shadow: 0 0 0 1px #999999 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #f2f4f4, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.btn3d.btn-danger {
+    box-shadow: 0 0 0 1px #999999 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 8px 0 0 #f2f4f4, 0 8px 0 1px rgba(0, 0, 0, 0.4), 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+}
+.btn3d:active.btn-default {
+    box-shadow: none;
+}
+.btn3d:active.btn-primary {
+    box-shadow: none;
+}
+.btn3d:active.btn-success {
+    box-shadow: none;
+}
+.btn3d:active.btn-info {
+    box-shadow: none;
+}
+.btn3d:active.btn-warning {
+    box-shadow: none;
+}
+.btn3d:active.btn-danger {
+    box-shadow: none;
+}
+
+#neutral, #disgust, #anger, #sadness, #surprise, #happiness, #fear  {
+    background-color: gainsboro;
+    color: black;
+}
+/*slider-header----> end*/
