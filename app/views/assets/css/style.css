@@ -9,10 +9,12 @@
 	margin-bottom: 30px;
 	width: 960px;
 	text-align: center;
-	border: 2px solid black;
+	border: 1px solid #8A8A8A;
 	border-radius: 4px;
-	background-color: lightgray;
-	color: white;
+	background-color: #99a7aa;
+    color: white;
+    box-shadow: 3px 3px 3px 1px #CACACA;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 #container {
@@ -20,6 +22,15 @@
 	padding-left: 0px;
 	padding-right: 0px;
 }
+
+.navbar.navbar-default.navbar-inverse {
+    border: 1px solid #8A8A8A;
+    box-shadow: 1px 1px 1px 1px #DADADA;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
 
 input, select {
 	display: block;
@@ -63,6 +74,10 @@ label {
 	background-color: #999999;
 	border: 1px solid black;
 	color: #ffffff;
+}
+
+.caption {
+    font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -123,6 +138,7 @@ label {
     background-color: #15224f;
     min-height: 30px;
     width: 100%;
+    font-family: 'Ubuntu', sans-serif;
 }
 .copyright {
     color: #fff;
@@ -222,11 +238,14 @@ label {
 }
 
 .panel.panel-default {
-    width: 80%;
+    width: 60%;
     margin: auto;
+    font-family: 'Ubuntu', sans-serif;
+    
 }
 
 .panel.panel-default.results {
     width: 60%;
     margin: auto;
+    font-family: 'Ubuntu', sans-serif;
 }
