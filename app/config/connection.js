@@ -16,5 +16,5 @@ var sequelize = new Sequelize("moodie", "root", "#", {
   }
 });
 
-// Exports the connection for other files to use
+// Export connection for other files.
 module.exports = sequelize;
