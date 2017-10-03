@@ -1,5 +1,5 @@
 #logo {
-    padding-left: 35%;
+    padding-left: 27.5%;
 }
 
 
@@ -11,7 +11,7 @@
 	text-align: center;
 	border: 1px solid #8A8A8A;
 	border-radius: 4px;
-	background-color: #99a7aa;
+	background-color: #9AC1DB;
     color: white;
     box-shadow: 3px 3px 3px 1px #CACACA;
     font-family: 'Ubuntu', sans-serif;
@@ -20,17 +20,22 @@
 #container {
 	width: 960px;
 	padding-left: 0px;
-	padding-right: 0px;
+    padding-right: 0px;
+    background-color: #8cb7d5;
+    
+}
+
+.thumbnail {
+    border: 1px solid #CFCFCF;
+    box-shadow: 1px 1px 1px 1px #8cb7d5;
 }
 
 .navbar.navbar-default.navbar-inverse {
-    border: 1px solid #8A8A8A;
+    border: 1px solid #CFCFCF;
     box-shadow: 1px 1px 1px 1px #DADADA;
     font-family: 'Ubuntu', sans-serif;
+    background-color: #8cb7d5;
 }
-
-
-
 
 input, select {
 	display: block;
@@ -78,9 +83,14 @@ label {
 
 .caption {
     font-family: 'Ubuntu', sans-serif;
+    line-height: 140%;
+    font-size: 1.2em;
 }
 
-
+.dropdown-menu {
+    border: 1px solid black;
+    width: 20%;
+}
 
 #login-dp{
     min-width: 250px;
@@ -135,7 +145,7 @@ label {
 
 
 .footer-bottom {
-    background-color: #15224f;
+    background-color: #8cb7d5;
     min-height: 30px;
     width: 100%;
     font-family: 'Ubuntu', sans-serif;
@@ -175,16 +185,19 @@ label {
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
     width: 100%;
 }
-/*slider --> end*/
 
-/*slider-header----> start*/
-
+#nav-btns {
+    float: left;
+    margin-top: 30px;
+    padding-right: 0px;
+    background-color: #8cb7d5;
+}
 .btn3d {
     transition: all .08s linear;
     position: relative;
     outline: medium none;
     -moz-outline-style: none;
-    border: 0px;
+    border: 1px;
     margin-top: 15px;
     top: 0;
 }
@@ -233,19 +246,48 @@ label {
 }
 
 #neutral, #disgust, #anger, #sadness, #surprise, #happiness, #fear  {
-    background-color: gainsboro;
-    color: black;
+    background-color: #8cb7d5;
+    color: #FFFFFF;
 }
 
 .panel.panel-default {
     width: 60%;
     margin: auto;
-    font-family: 'Ubuntu', sans-serif;
-    
+    font-family: 'Ubuntu', sans-serif;  
+    box-shadow: 1px 2px 2px 1px #8cb7d5;
 }
+
 
 .panel.panel-default.results {
     width: 60%;
     margin: auto;
     font-family: 'Ubuntu', sans-serif;
+    box-shadow: 1px 2px 2px 1px #8cb7d5;
+    
+}
+
+.panel-heading.top {
+    background-color: #8cb7d5;
+    text-align: center;
+    color: white;
+}
+
+.panel-body {
+    text-align: center;
+    line-height: 180%;
+}
+
+.dropdown-toggle {
+    color: white !important;
+    text-decoration-color: white;
+}
+
+.navbar-text {
+    color: white !important;
+}
+
+#take-photo-btn {
+    background-color: #8cb7d5;
+    border: 2px solid #707070;
+    
 }
