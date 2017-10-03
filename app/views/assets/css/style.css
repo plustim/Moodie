@@ -1,5 +1,5 @@
 #logo {
-    padding-left: 35%;
+    padding-left: 27.5%;
 }
 
 
@@ -36,9 +36,6 @@
     font-family: 'Ubuntu', sans-serif;
     background-color: #8cb7d5;
 }
-
-
-
 
 input, select {
 	display: block;
@@ -86,6 +83,8 @@ label {
 
 .caption {
     font-family: 'Ubuntu', sans-serif;
+    line-height: 140%;
+    font-size: 1.2em;
 }
 
 .dropdown-menu {
@@ -186,10 +185,13 @@ label {
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
     width: 100%;
 }
-/*slider --> end*/
 
-/*slider-header----> start*/
-
+#nav-btns {
+    float: left;
+    margin-top: 30px;
+    padding-right: 0px;
+    background-color: #8cb7d5;
+}
 .btn3d {
     transition: all .08s linear;
     position: relative;

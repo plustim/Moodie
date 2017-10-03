@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Moodie</title>
+  <title>Moodie</title>
+  
+  <!-- references to bootstrap, CSS and google Fonts -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -11,6 +13,7 @@
 </head>
 <body>
 
+  
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -25,18 +28,12 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-              <li><a href="index.html">home</a></li>
-              <li><a href="second.html">Gallery</a></li>
-              <li><a href="third.html">Play Moodie</a></li>
-            
-          </ul>
-        </li>
-      </ul>
+    <div class="btn-group" id="nav-btns" role="group" aria-label="Nav-btns">
+      <a href="index.html" class="btn btn-default" role="button"> Home</a>
+      <a href="second.html" class="btn btn-default" role="button"> Gallery</a>
+      <a href="third.html" class="btn btn-default" role="button"> Try Moodie</a>
+    </div>
+   
       <ul class="navbar-form navbar-left" id="logo">
         <div class="logo" style="color: white">
           <p><img src="assets/images/moodie.png" alt="logo" width="" height="50px"></p>
@@ -71,7 +68,7 @@
 										</div>
 										<div class="checkbox">
 											 <label>
-											 <input type="checkbox"> keep me logged-in
+											 <input type="checkbox"> Keep me logged-in
 											 </label>
 										</div>
 								 </form>
@@ -88,48 +85,45 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-
 <div class="jumbotron">
    <h3> Moodie is a facial recognition application. Users can take photos of themselves with their webcam and Moodie will analyze their facial
      expression and display to the user what emotions their face is displaying. Make a game out of it by trying to match the emotions on the screen
     or by trying to match others facial expressions based on pictures. </h3>
 </div>
 
-
-  <div id="container-index" class="container">
-<!--
-  	<div class="row">
-  		<div class="col-md-4">
--->
+<div id="container-index" class="container">
 <div class="row1">
   <div class="col-sm-6 col-md-6 col-lg-6" id="face-div">
     <div class="thumbnail">
       <br>
-      <img src="assets/images/Happy-Face.png" alt="happy-face">
+      <img src="assets/images/Happy-Face.png" alt="happy-face" width="260" height="260">
       <br>
     </div>
   </div>
    <div class="col-sm-6 col-md-6 col-lg-6" id="results">
     <div class="thumbnail">
       <div class="caption">
-        <p><strong>Results from Moodie go here:</strong> <br>
-          Happiness: <br>
-          Fear: <br>
-          Surprised: <br>
-          Anger: <br>
-          Disgust: <br>
-          Neutral: <br>
-          Sadness: <br>
-
+        <p><strong><u>Results:</u></strong> <br>
+          <br>
+          Happiness :<span style="margin-left: 1em;">60.66 </span><br>
+          <br>
+          Fear  :  <span style="margin-left: 1em;">4.158</span><br>
+          <br>
+          Surprised :<span style="margin-left: 1em;">20.11</span><br>
+          <br>
+          Anger :<span style="margin-left: 1em;">2.67</span><br>
+          <br>
+          Disgust :<span style="margin-left: 1em;">1.89</span><br>
+          <br>
+          Neutral :   <span style="margin-left: 1em;">10.76</span><br>
+          <br>
+          Sadness :   <span style="margin-left: 1em;">3.76</span><br>
+          
         </p>
       </div>
     </div>
   </div>
 </div>
- 
-    
-
-        
         </div>
   		</div>
 	
@@ -138,37 +132,23 @@
   <br><br>
     <footer class="footer">
     <div class="footer-bottom">
-
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
 				<div class="copyright">
-
 					© 2017, MOODY, All rights reserved
-
 				</div>
-
 			</div>
-
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
 				<div class="design">
-
 					 <a href="#">MOODY </a> |  <a target="_blank" href="https://github.com/plustim/Moodie">Github</a>
-
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
-
 </div>
     </footer>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="app.js"></script>
