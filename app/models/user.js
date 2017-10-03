@@ -18,6 +18,7 @@ module.exports = function(sequelize, DataTypes){
         privacy: {
             type: DataTypes.BOOLEAN
         }
+
     });
     return User;
 };
