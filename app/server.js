@@ -24,7 +24,8 @@ app.use(express.static("public")); // removed public dir
 
 // Routes.
 // =============================================================
-require("./routes/moodie_controller.js")(app);
+require("./controllers/api-routes.js")(app);
+require("./controllers/html-routes.js")(app);
 
 // Syncing sequelize models and starting Express app.
 // =============================================================

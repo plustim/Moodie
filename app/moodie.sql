@@ -16,7 +16,9 @@ CREATE TABLE userProfile(
 
 CREATE TABLE gallery(
     userID VARCHAR(50) NOT NULL,
-    photo VARCHAR(255) NOT NULL,
+    photo TEXT(255) NOT NULL,
+    emotion VARCHAR(50) NOT NULL,
+    score DECIMAL(7, 3) NOT NULL,
 	FOREIGN KEY (userID)
 	REFERENCES userProfile(userID)
 	ON DELETE CASCADE
