@@ -28,3 +28,4 @@ User.associate = function(models) {
       onDelete: "cascade"
     });
 };
+
