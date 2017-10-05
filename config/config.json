@@ -1,7 +1,11 @@
 {
     "development": {
       "username": "root",
+<<<<<<< HEAD
+      "password": "",
+=======
       "password": "gRack4bry",
+>>>>>>> 7b89eec03d3c80dd987db3c532988e780d6e4910
       "database": "moodie",
       "host": "127.0.0.1",
       "dialect": "mysql",
