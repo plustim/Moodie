@@ -1,12 +1,48 @@
-<script>
-  var allEmotions = ["sadness", "neutural", "disgust", "anger", "surprise", "fear", "happiness"];
-  var targetEmotion = allEmotions[Math.floor(Math.random() * allEmotions.length)];
-  console.log(targetEmotion);
-</script>
 
-<div class="jumbotron">
-        <h2>Use the webcam application below to take a picture of yourself. Moodie will give you results below.</h2>
-     </div>
+<div class = "row">
+    <div class="col-sm-2 col-md-2 col-lg-2" id="jumboMini">
+
+        <div class="jumPlace">
+            
+        </div>
+    </div>
+
+
+    <div class="col-sm-8 col-md-8 col-lg-8" id="jumbo">
+          <div class="jumbotron">
+            <h2>Use the webcam application below to take a picture of yourself. Moodie will give you results below.</h2>
+          </div>
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2" id="jumboMini">
+
+            <div class="jumPlace">
+                
+            </div>
+    </div>
+</div>
+
+{{!-- =======================================jumbotron end --}}
+
+  <div class="target-emotion">
+    <div class="panel panel-default top">
+            <div class="panel-body" id="emotion-tense">
+              <h3 id="prompt"></h3>
+            </div>
+    </div>
+  </div>
+  <br>
+
+  <script>
+  var emotionTense = ["sad", "neutral", "disgusted", "angry", "surprised", "scared", "happy"];
+  var allEmotions = ["sadness", "neutral", "disgust", "anger", "surprise", "fear", "happiness"];
+  var emotionIndex = Math.floor(Math.random() * allEmotions.length);
+  var targetEmotion = allEmotions[emotionIndex];
+
+  console.log(targetEmotion);
+
+  document.getElementById("prompt").innerHTML = "Make your " + emotionTense[emotionIndex] + " face!";
+
+  </script>
 
      <div class="panel panel-default top">
             <div class="panel-heading top">
