@@ -131,7 +131,7 @@
                   // send the image for testing
                   $.post("/api/judge", {face: data_uri, target: targetEmotion}, function(data, status){
                     // display the results of the test
-                    console.log(data);
+                    logdata = data;
                     $("#score").html("You scored "+data.data.faces[0].attributes.emotion[targetEmotion]+"% "+targetEmotion+"!<br><button class='btn btn-primary' id='save'>submit to gallery</button><br><button class='btn btn-primary' id='again'>play again</button>");
                     $("#save").on("click", function(){
                       $(this).hide();
