@@ -18,7 +18,9 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
-app.use(express.static("public")); 
+
+app.use(express.static("public")); // removed public dir
+
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
