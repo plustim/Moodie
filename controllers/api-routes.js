@@ -32,12 +32,12 @@ module.exports = function(app) {
 				console.log("============================================");
 				console.log(chunk);
 				// send scores back to client
-				if( chunk.faces && emotion === "all" ){
+				if( chunk.hasOwnProperty(face) && emotion === "all" ){
 					var feedback = {
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion,
 					}	
-				}else if( chunk.faces ){
+				}else if( chunk.hasOwnProperty(face) ){
 					var feedback = {
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion[emotion],
