@@ -27,7 +27,6 @@ module.exports = function(app) {
 		https.post("https://api-us.faceplusplus.com/facepp/v3/detect", fppParams, function(response){
 			response.setEncoding('utf8');
 			response.on('data', function(chunk) {
-				console.log(chunk.face[0]);
 				// send scores back to client
 				if( chunk.hasOwnProperty("faces") && emotion === "all" ){
 					var feedback = {
