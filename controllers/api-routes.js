@@ -34,7 +34,7 @@ module.exports = function(app) {
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion,
 					}	
-				}else if( chunk.hasOwnProperty(face) ){
+				}else if( chunk.hasOwnProperty(face) || true ){
 					var feedback = {
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion[emotion],
