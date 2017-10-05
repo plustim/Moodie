@@ -131,11 +131,11 @@
                   // send the image for testing
                   $.post("/api/judge", {face: data_uri, target: targetEmotion}, function(data, status){
                     // display the results of the test
-                    console.log(data);
-                    $("#score").html("You scored "+data.data.faces[0].attributes.emotion[targetEmotion]+"% "+targetEmotion+"!<br><button class='btn btn-primary' id='save'>submit to gallery</button><br><button class='btn btn-primary' id='again'>play again</button>");
+                    console.log(status, data);
+                    $("#score").html("You scored "+data.score+"% "+targetEmotion+"!<br><button class='btn btn-primary' id='save'>submit to gallery</button><br><button class='btn btn-primary' id='again'>play again</button>");
                     $("#save").on("click", function(){
                       $(this).hide();
-                      $.post("/api/save", {id:data.id, score: data.data.faces[0].attributes.emotion[targetEmotion], emotion: targetEmotion}, function(data, status){
+                      $.post("/api/save", {id:data.id, score: data.score, emotion: targetEmotion}, function(data, status){
                         console.log(status, data);
                       }).fail((error, data)=>{console.log(error, data)});
                     })
