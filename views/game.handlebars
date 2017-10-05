@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div class = "row">
     <div class="col-sm-2 col-md-2 col-lg-2" id="jumboMini">
 
@@ -40,6 +41,31 @@
 
   console.log(targetEmotion);
 
+=======
+
+<div class="jumbotron">
+        <h2>Use the webcam application below to take a picture of yourself. Moodie will give you results instantly.</h2>
+     </div>
+     <br>
+
+  <div class="target-emotion">
+    <div class="panel panel-default top">
+            <div class="panel-body" id="emotion-tense">
+              <h3 id="prompt"></h3>
+            </div>
+    </div>
+  </div>
+  <br>
+
+  <script>
+  var emotionTense = ["sad", "neutral", "disgusted", "angry", "surprised", "scared", "happy"];
+  var allEmotions = ["sadness", "neutral", "disgust", "anger", "surprise", "fear", "happiness"];
+  var emotionIndex = Math.floor(Math.random() * allEmotions.length);
+  var targetEmotion = allEmotions[emotionIndex];
+
+  console.log(targetEmotion);
+
+>>>>>>> d7c2c53ed00736f7b8ebd23a65e98024d7c2b347
   document.getElementById("prompt").innerHTML = "Make your " + emotionTense[emotionIndex] + " face!";
 
   </script>
@@ -161,6 +187,7 @@
                 } );
               }
 
+           
 
             </script>
     </div>

@@ -15,9 +15,8 @@ module.exports = function(app) {
 	
 		// convert image to JPEG and save
 		var image = base64ToImg(imageURI, "public/temp/", {debug: true})
-		console.log(image);
 		var imageUrl = baseURL + "/temp/" + image.fileName;
-	
+
 		// send image link to face++ for evaluation
 		var fppParams = {
 			api_key: "6rH88UB11ggkHwhuljdWC0Bl0vujjUfs",
@@ -28,15 +27,27 @@ module.exports = function(app) {
 		https.post("https://api-us.faceplusplus.com/facepp/v3/detect", fppParams, function(response){
 			response.setEncoding('utf8');
 			response.on('data', function(chunk) {
-				// send json back to client
-				var feedback = typeof chunk.faces !== 'undefined' ? {
-					id: image.fileName,
-					score: chunk.faces[0].attributes.emotion[emotion]
-				} : {
-					id: image.fileName,
-					score: 0
+				console.log(chunk.faces[0]);
+				// send scores back to client
+				if( chunk.hasOwnProperty("faces") && emotion === "all" ){
+					var feedback = {
+						id: image.fileName,
+						score: chunk.faces[0].attributes.emotion,
+					};
+				}else if( chunk.hasOwnProperty("faces") ){
+					var feedback = {
+						id: image.fileName,
+						score: chunk.faces[0].attributes.emotion[emotion],
+						all: chunk.faces[0].attributes.emotion
+					};
+				}else{
+					var feedback = {
+						id: image.fileName,
+						score: 0,
+						all: {sadness: 0, neutral: 0, disgust: 0, anger: 0, surprise: 0, fear: 0, happiness: 0}
+					};
 				};
-				res.send(feedback);
+				res.send(chunk);
 			});
 		})
 	});
@@ -45,11 +56,13 @@ module.exports = function(app) {
 	app.post("/api/save", function(req, res){
 		// move the file somewhere more permanent
 		var newName = new Date().getTime() + ".jpg";
-		fs.rename("public/temp/" + req.body.id, "public/gallery/" + newName, (err)=>{
-			if(err) throw err;
+		fs.rename("public/temp/" + req.body.id, "public/photos/" + newName, (err)=>{
+			if(err){
+				console.log(err);
+			};
 			// create new database record for this image
 			var query = {
-				url: baseURL + "/gallery/" + newName,
+				url: baseURL + "/photos/" + newName,
 				emotion: req.body.emotion,
 				score: req.body.score
 			};
