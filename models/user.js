@@ -1,31 +1,25 @@
 module.exports = function(sequelize, DataTypes){
     var User = sequelize.define("User", {
-        userID: {
-            type: DataTypes.STRING
-        },
-        firstName: {
-            type: DataTypes.STRING
-        },
-        lastName: {
+        name: {
             type: DataTypes.STRING
         },
         email: {
             type: DataTypes.STRING
         },
         password: {
-            type: DataTypes.SHA1(STRING)
+			//type: DataTypes.SHA1(STRING)
+			type: DataTypes.STRING
         },
         privacy: {
-            type: DataTypes.BOOLEAN
+			type: DataTypes.BOOLEAN,
+			defaultValue: false
         }
-
     });
+    
+    // User.associate = function(models) {
+    //     User.hasMany(models.Gallery, {
+    //         onDelete: "cascade"
+    //     });
+    // };
     return User;
 };
-
-User.associate = function(models) {
-    User.hasMany(models.Gallery, {
-      onDelete: "cascade"
-    });
-};
-
