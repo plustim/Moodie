@@ -29,6 +29,9 @@ module.exports = function(app) {
 			response.on('data', function(chunk) {
 				console.log(chunk.faces[0]);
 				// send scores back to client
+				console.log("chunk.hasOwnProperty('faces'): "+chunk.hasOwnProperty('faces'));
+				console.log("typeof chunk.faces: "+typeof chunk.faces);
+				console.log("chunk.faces == undefined: "+ (chunk.faces==undefined) );
 				if( chunk.hasOwnProperty("faces") && emotion === "all" ){
 					var feedback = {
 						id: image.fileName,
