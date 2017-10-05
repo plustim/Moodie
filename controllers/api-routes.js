@@ -29,12 +29,12 @@ module.exports = function(app) {
 			response.setEncoding('utf8');
 			response.on('data', function(chunk) {
 				// send scores back to client
-				if( chunk.hasOwnProperty(face) && emotion === "all" ){
+				if( chunk.hasOwnProperty("face") && emotion === "all" ){
 					var feedback = {
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion,
 					}	
-				}else if( chunk.hasOwnProperty(face) || true ){
+				}else if( chunk.hasOwnProperty("face") ){
 					var feedback = {
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion[emotion],
