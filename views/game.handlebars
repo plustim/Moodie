@@ -1,25 +1,40 @@
-<script>
+{{!-- <script>
   var emotionTense = ["sad", "neutral", "disgusted", "angry", "surprised", "scared", "happy"];
   var allEmotions = ["sadness", "neutral", "disgust", "anger", "surprise", "fear", "happiness"];
   var emotionIndex = Math.floor(Math.random() * allEmotions.length);
-  console.log(targetEmotion);
   var targetEmotion = allEmotions[emotionIndex];
 
-</script>
+  console.log(targetEmotion);
+
+  $("#prompt").text("Show me your" + emotionTense[emotionIndex] + " face!" );
+
+</script> --}}
 
 <div class="jumbotron">
-        <h2>Use the webcam application below to take a picture of yourself. Moodie will give you results below.</h2>
+        <h2>Use the webcam application below to take a picture of yourself. Moodie will give you results instantly.</h2>
      </div>
      <br>
 
   <div class="target-emotion">
     <div class="panel panel-default top">
             <div class="panel-body" id="emotion-tense">
-              <h3 id="prompt">Show me your angry face! </h3>
+              <h3 id="prompt"></h3>
             </div>
     </div>
   </div>
   <br>
+
+  <script>
+  var emotionTense = ["sad", "neutral", "disgusted", "angry", "surprised", "scared", "happy"];
+  var allEmotions = ["sadness", "neutral", "disgust", "anger", "surprise", "fear", "happiness"];
+  var emotionIndex = Math.floor(Math.random() * allEmotions.length);
+  var targetEmotion = allEmotions[emotionIndex];
+
+  console.log(targetEmotion);
+
+  document.getElementById("#prompt").innerHTML = "Make your " + emotionTense[emotionIndex] + " face!";
+
+  </script>
 
      <div class="panel panel-default top">
             <div class="panel-heading top">
@@ -138,7 +153,7 @@
                 } );
               }
 
-            $("#prompt").text("Show me your" + emotionTense[emotionIndex] + " face!" );
+           
 
             </script>
     </div>
