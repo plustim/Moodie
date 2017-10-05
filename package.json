@@ -22,6 +22,7 @@
     "express-handlebars": "^3.0.0",
     "fs": "0.0.1-security",
     "http": "0.0.0",
+    "mysql2": "^1.4.2",
     "path": "^0.12.7",
     "sequelize": "^4.13.3"
   }

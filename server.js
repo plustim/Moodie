@@ -22,7 +22,7 @@ app.use(express.static("public"));
 
 // Routes.
 // =============================================================
-require("./routes/moodie_controller.js")(app);
+require("./controllers")(app);
 
 // Syncing sequelize models and starting Express app.
 // =============================================================
