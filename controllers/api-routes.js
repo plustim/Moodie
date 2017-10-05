@@ -28,9 +28,6 @@ module.exports = function(app) {
 			response.setEncoding('utf8');
 			response.on('data', function(chunk) {
 				// send scores back to client
-				console.log("chunk.hasOwnProperty('faces'): "+chunk.hasOwnProperty('faces'));
-				console.log("typeof chunk.faces: "+typeof chunk.faces);
-				console.log("chunk.faces == undefined: "+ (chunk.faces==undefined) );
 				if( chunk.hasOwnProperty("faces") && emotion === "all" ){
 					var feedback = {
 						id: image.fileName,
@@ -49,7 +46,8 @@ module.exports = function(app) {
 						all: {sadness: 0, neutral: 0, disgust: 0, anger: 0, surprise: 0, fear: 0, happiness: 0}
 					};
 				};
-				res.send(chunk);
+				console.log(feedback);
+				res.send({data: chunk, id: image.fileName});
 			});
 		})
 	});
