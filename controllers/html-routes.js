@@ -17,7 +17,7 @@ module.exports = function(app) {
 			limit: 16		
 		};
 		var data = {title: "Gallery"};
-		var categories = ["sadness", "neutural", "disgust", "anger", "surprise", "fear", "happiness"];
+		var categories = ["sadness", "neutral", "disgust", "anger", "surprise", "fear", "happiness"];
 		if( req.params.emotion && categories.includes(req.params.emotion) ){
 			query.where.emotion = req.params.emotion;
 			data.title = req.params.emotion.charAt(0).toUpperCase() + req.params.emotion.slice(1) + " Gallery";
