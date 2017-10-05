@@ -37,50 +37,6 @@
     background-color: #8cb7d5;
 }
 
-input, select {
-	display: block;
-	width: 935px;
-	height: 30px;
-	margin: 0 auto;
-	margin-left: 10px;
-	margin-right: 10px;
-	border-radius: 4px;
-	border: 1px solid #999999;
-}
-
-label {
-	display: block;
-	margin: 0 auto;
-	margin-top: 10px;
-	margin-left: 10px;
-	margin-right: 10px;
-	width: 920px;
-	border: none;
-}
-
-#search-div, #responses {
-	border: 1px solid black;
-	border-radius: 4px;
-}
-
-#search-param, #top-articles {
-	margin-top: 0;
-	padding-top: 5px;
-	height: 30px;
-	background-color: lightgray;
-	color: #ffffff;
-	padding-left: 5px;
-}
-
-#submit, #clear {
-	height: 35px;
-	margin-top: 10px;
-	margin-left: 10px;
-	background-color: #999999;
-	border: 1px solid black;
-	color: #ffffff;
-}
-
 .caption {
     font-family: 'Ubuntu', sans-serif;
     line-height: 140%;
