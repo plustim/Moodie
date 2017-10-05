@@ -27,26 +27,26 @@ module.exports = function(app) {
 		https.post("https://api-us.faceplusplus.com/facepp/v3/detect", fppParams, function(response){
 			response.setEncoding('utf8');
 			response.on('data', function(chunk) {
+				console.log(chunk.faces[0]);
 				// send scores back to client
 				if( chunk.hasOwnProperty("faces") && emotion === "all" ){
-					var feedback = {
+					res.send({
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion,
-					}	
-				}else if( chunk.hasOwnProperty("faces") || true ){
-					var feedback = {
+					});
+				}else if( chunk.hasOwnProperty("faces") ){
+					res.send({
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion[emotion],
 						all: chunk.faces[0].attributes.emotion
-					}	
+					});
 				}else{
-					var feedback = {
+					res.send({
 						id: image.fileName,
 						score: 0,
 						all: {sadness: 0, neutral: 0, disgust: 0, anger: 0, surprise: 0, fear: 0, happiness: 0}
-					};
+					});
 				};
-				res.send(feedback);
 			});
 		})
 	});
