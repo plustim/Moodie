@@ -1,5 +1,5 @@
--- DROP DATABASE IF EXISTS moodie;
--- CREATE DATABASE moodie;
+DROP DATABASE IF EXISTS moodie;
+CREATE DATABASE moodie;
 
 USE moodie;
 
