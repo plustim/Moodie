@@ -16,8 +16,7 @@ module.exports = function(app) {
 		// convert image to JPEG and save
 		var image = base64ToImg(imageURI, "public/temp/", {debug: true})
 		var imageUrl = baseURL + "/temp/" + image.fileName;
-		console.log(imageUrl);
-	
+
 		// send image link to face++ for evaluation
 		var fppParams = {
 			api_key: "6rH88UB11ggkHwhuljdWC0Bl0vujjUfs",
@@ -29,12 +28,12 @@ module.exports = function(app) {
 			response.setEncoding('utf8');
 			response.on('data', function(chunk) {
 				// send scores back to client
-				if( chunk.hasOwnProperty(face) && emotion === "all" ){
+				if( chunk.hasOwnProperty("faces") && emotion === "all" ){
 					var feedback = {
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion,
 					}	
-				}else if( chunk.hasOwnProperty(face) || true ){
+				}else if( chunk.hasOwnProperty("faces") || true ){
 					var feedback = {
 						id: image.fileName,
 						score: chunk.faces[0].attributes.emotion[emotion],
