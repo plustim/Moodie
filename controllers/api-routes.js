@@ -28,14 +28,22 @@ module.exports = function(app) {
 		https.post("https://api-us.faceplusplus.com/facepp/v3/detect", fppParams, function(response){
 			response.setEncoding('utf8');
 			response.on('data', function(chunk) {
-				// send json back to client
-				var feedback = typeof chunk.faces !== 'undefined' ? {
-					id: image.fileName,
-					score: chunk.faces[0].attributes.emotion[emotion]
-				} : {
-					id: image.fileName,
-					score: 0
-				};
+				// send scores back to client
+				if( chunk.faces && emotion === "all" ){
+					var feedback = {
+						id: image.fileName,
+						score: chunk.faces[0].attributes.emotion
+					}	
+				}else if( chunk.faces ){
+					var feedback = {
+						id: image.fileName,
+						score: chunk.faces[0].attributes.emotion[emotion]
+					}	
+				}else
+					var feedback = {
+						id: image.fileName,
+						score: 0
+					};
 				res.send(feedback);
 			});
 		})
@@ -46,7 +54,9 @@ module.exports = function(app) {
 		// move the file somewhere more permanent
 		var newName = new Date().getTime() + ".jpg";
 		fs.rename("public/temp/" + req.body.id, "public/photos/" + newName, (err)=>{
-			if(err) throw err;
+			if(err){
+
+			};
 			// create new database record for this image
 			var query = {
 				url: baseURL + "/photos/" + newName,
