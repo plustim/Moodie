@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS moodie;
-CREATE DATABASE moodie;
+-- DROP DATABASE IF EXISTS moodie;
+-- CREATE DATABASE moodie;
 
 USE moodie;
 
-DROP TABLE IF EXISTS userProfile;
+-- DROP TABLE IF EXISTS userProfile;
 CREATE TABLE userProfile(
     userID VARCHAR(50) NOT NULL,
     firstName VARCHAR (25) NOT NULL,

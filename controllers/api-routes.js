@@ -15,8 +15,8 @@ module.exports = function(app) {
 	
 		// convert image to JPEG and save
 		var image = base64ToImg(imageURI, "public/temp/", {debug: true})
-		console.log(image);
 		var imageUrl = baseURL + "/temp/" + image.fileName;
+		console.log(imageUrl);
 	
 		// send image link to face++ for evaluation
 		var fppParams = {
@@ -55,7 +55,7 @@ module.exports = function(app) {
 		var newName = new Date().getTime() + ".jpg";
 		fs.rename("public/temp/" + req.body.id, "public/photos/" + newName, (err)=>{
 			if(err){
-
+				console.log(err);
 			};
 			// create new database record for this image
 			var query = {
