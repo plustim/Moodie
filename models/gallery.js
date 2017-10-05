@@ -1,12 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
 	var Gallery = sequelize.define("Gallery", {
-		userID: {
-			type: DataTypes.INTEGER,
-			allowNull: false,
-			validate: {
-			len: [1]
-			}
-		},
 		url: {
 			type: DataTypes.STRING,
 			allowNull: false,
@@ -26,13 +19,14 @@ module.exports = function(sequelize, DataTypes) {
 		}
 	});
 
-	Gallery.associate = function(models) {
-		Gallery.belongsTo(models.User, {
-			foreignKey: {
-				allowNull: false
-			}
-		});
-	};
+	// generates a foreign key named UserId that references User.id
+	// Gallery.associate = function(models) {
+	// 	Gallery.belongsTo(models.User, {
+	// 		foreignKey: {
+	// 			allowNull: false
+	// 		}
+	// 	});
+	// };
 	
 	return Gallery;
 };

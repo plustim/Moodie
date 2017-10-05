@@ -1,124 +1,61 @@
 var db = require("../models");
+var base64ToImg = require('base64-to-image');
+var fs = require("fs");
+var https = require("https");
+https.post = require("https-post");
 
 module.exports = function(app) {
-  app.get("/api/authors", function(req, res) {
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Post
-    db.Author.findAll({
-      include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
-    });
-  });
+	var baseURL = "https://mooodie.herokuapp.com";
 
-  app.get("/api/authors/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Post
-    db.Author.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Post]
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
-    });
-  });
+	// receives image and processes it, then sends link for face++ assessment
+	app.post("/api/judge", function(req, res){
+		// get image in base64
+		var imageURI = req.body.face;
+		var emotion = req.body.target;
+	
+		// convert image to JPEG and save
+		var image = base64ToImg(imageURI, "public/temp/", {debug: true})
+		console.log(image);
+		var imageUrl = baseURL + "/temp/" + image.fileName;
+	
+		// send image link to face++ for evaluation
+		var fppParams = {
+			api_key: "6rH88UB11ggkHwhuljdWC0Bl0vujjUfs",
+			api_secret: "gsKKbx40EBR2AbhWf4xVrX1wwAbzLAzU",
+			return_attributes: "emotion",
+			image_url: imageUrl
+		};
+		https.post("https://api-us.faceplusplus.com/facepp/v3/detect", fppParams, function(response){
+			response.setEncoding('utf8');
+			response.on('data', function(chunk) {
+				// send json back to client
+				var feedback = typeof chunk.faces !== 'undefined' ? {
+					id: image.fileName,
+					score: chunk.faces[0].attributes.emotion[emotion]
+				} : {
+					id: image.fileName,
+					score: 0
+				};
+				res.send(feedback);
+			});
+		})
+	});
 
-  app.post("/api/authors", function(req, res) {
-    db.Author.create(req.body).then(function(dbAuthor) {
-      res.json(dbAuthor);
-    });
-  });
-
-  app.delete("/api/authors/:id", function(req, res) {
-    db.Author.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbAuthor) {
-      res.json(dbAuthor);
-    });
-  });
-
-};
-
-
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
-
-// Dependencies
-// =============================================================
-
-// Requiring our models
-var db = require("../models");
-
-// Routes
-// =============================================================
-module.exports = function(app) {
-
-  // GET route for getting all of the posts
-  app.get("/api/posts", function(req, res) {
-    var query = {};
-    if (req.query.author_id) {
-      query.AuthorId = req.query.author_id;
-    }
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Post.findAll({
-      where: query,
-      include: [db.Author]
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // Get rotue for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Post.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Author]
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbPost) {
-      res.json(dbPost);
-    });
-  });
-
-  // PUT route for updating posts
-  app.put("/api/posts", function(req, res) {
-    db.Post.update(
-      req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      }).then(function(dbPost) {
-        res.json(dbPost);
-      });
-  });
+	// save record for image and move to permanent url
+	app.post("/api/save", function(req, res){
+		// move the file somewhere more permanent
+		var newName = new Date().getTime() + ".jpg";
+		fs.rename("public/temp/" + req.body.id, "public/gallery/" + newName, (err)=>{
+			if(err) throw err;
+			// create new database record for this image
+			var query = {
+				url: baseURL + "/gallery/" + newName,
+				emotion: req.body.emotion,
+				score: req.body.score
+			};
+			db.Gallery.create(query).then((result)=>{
+				res.send(result);
+			});
+		})
+	});
 };

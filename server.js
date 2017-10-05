@@ -20,9 +20,16 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Static directory
 app.use(express.static("public")); 
 
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Routes.
 // =============================================================
-require("./controllers")(app);
+require("./controllers/api-routes.js")(app);
+require("./controllers/html-routes.js")(app);
 
 // Syncing sequelize models and starting Express app.
 // =============================================================
