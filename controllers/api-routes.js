@@ -45,7 +45,7 @@ module.exports = function(app) {
 	app.post("/api/save", function(req, res){
 		// move the file somewhere more permanent
 		var newName = new Date().getTime() + ".jpg";
-		fs.rename("public/temp/" + req.body.id, "public/gallery/" + newName, (err)=>{
+		fs.rename("public/temp/" + req.body.id, "public/photos/" + newName, (err)=>{
 			if(err) throw err;
 			// create new database record for this image
 			var query = {
