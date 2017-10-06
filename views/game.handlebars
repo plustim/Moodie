@@ -1,8 +1,23 @@
+<div class = "row">
+    <div class="col-sm-2 col-md-2 col-lg-2" id="jumboMini">
+      <div class="jumPlace">
+      </div>
+    </div>
+
+    <div class="col-sm-8 col-md-8 col-lg-8" id="jumbo">
+        <div class="jumbotron">
+             <h2>Use the webcam application below to take a picture of yourself. Moodie will give you results instantly.</h2>
+        </div>
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-lg-2" id="jumboMini">
+      <div class="jumPlace">
+      </div>
+    </div>
+</div>
 
 
-<div class="jumbotron">
-        <h2>Use the webcam application below to take a picture of yourself. Moodie will give you results instantly.</h2>
-     </div>
+
      <br>
 
   <div class="target-emotion">
@@ -33,7 +48,7 @@
             <div class="panel-body">
 
               <style type="text/css">
-                form button, #save, #again { margin: 15px 8px; }
+                form button, #again { margin: 15px 8px; }
                 #my_camera { margin: auto; }
               </style>
 
@@ -75,13 +90,10 @@
           <div class="panel panel-default results" id="results" style="display:none">
                 <div class="panel-heading top">Results</div>
                 <div class="panel-body" id="score">
-                    Happiness: <br>
-                    Fear: <br>
-                    Surprised: <br>
-                    Anger: <br>
-                    Disgust: <br>
-                    Neutral: <br>
-                    Sadness: <br>
+
+                </div>
+                <div class="panel-body" id="details" style="display:none">
+
                 </div>
               </div>
           <br>
@@ -123,6 +135,7 @@
 
                   // display image taken and loading ring
                   $("#my_camera").html('<img src="'+data_uri+'"/>');
+                  $("#pre_take_buttons, #post_take_buttons").hide();
                   $("#score").html('<img src="assets/images/loader.gif" ></div>');
                   
                   // show results
@@ -132,12 +145,17 @@
                   $.post("/api/judge", {face: data_uri, target: targetEmotion}, function(data, status){
                     // display the results of the test
                     console.log(status, data);
-                    $("#score").html("You scored "+data.score+"% "+targetEmotion+"!<br><button class='btn btn-primary' id='save'>submit to gallery</button><br><button class='btn btn-primary' id='again'>play again</button>");
+                    $("#score").html("You scored "+data.score+"% "+targetEmotion+"!<br><button class='btn btn-primary' id='save'>submit to gallery</button><br><a href='/play' class='btn btn-primary' id='again'>play again</a><br><button class='btn btn-primary' id='show-details'>show more results</button>");
+                    $("#details").html("Happiness: "+data.all.happiness+"%<br>Fear: "+data.all.fear+"%<br>Surprise: "+data.all.surprise+"%<br>Anger: "+data.all.anger+"%<br>Disgust: "+data.all.disgust+"%<br>Neutral: "+data.all.neutral+"%<br>Sadness: "+data.all.sadness+"%<br>");
                     $("#save").on("click", function(){
                       $(this).hide();
                       $.post("/api/save", {id:data.id, score: data.score, emotion: targetEmotion}, function(data, status){
                         console.log(status, data);
                       }).fail((error, data)=>{console.log(error, data)});
+                    })
+                    $("#show-details").click(function(){
+                      $(this).hide();
+                      $("#details").show();
                     })
                   }).fail((error, data)=>{console.log(error, data)});
                 } );

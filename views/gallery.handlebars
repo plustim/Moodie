@@ -75,8 +75,8 @@
                                 <!-- Carousel items -->
                                 <div class="carousel-inner">
                                     {{#each photos}}
-                                        <div class="active item" data-slide-number="{{@index}}">
-                                            <img src="{{this.url}}"><span>{{this.score}}</span>
+                                        <div class="{{#if @first}}active {{/if}}item" data-slide-number="{{@index}}">
+                                            <img src="{{this.url}}"><div class="img-title">{{this.score}}% {{this.emotion}}</div>
                                         </div>
                                     {{/each}}
                                 </div>
