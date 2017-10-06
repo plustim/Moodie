@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
 	var Gallery = sequelize.define("Gallery", {
 		url: {
-			type: DataTypes.STRING,
+			type: DataTypes.TEXT,
 			allowNull: false,
 			len: [1]
 		},
